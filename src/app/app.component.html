@@ -43,7 +43,7 @@
             type="button"
             (click)="onAddHobby()">Dodaj Hobi</button>
             <div class="form-group"
-            *ngFor="let hobiControl of signupForm.get('hobi').controls; let i = index">
+            *ngFor="let hobiControl of getControls(); let i = index">
               <input type="text" class="form-control" [formControlName]="i">
             </div>
         </div>
@@ -62,38 +62,43 @@
 
 <!-- Zadatak *****************------------ -->
 <!-- Zadatak --------------------- -->
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2">
+      <form [formGroup]="zadatakForma" (ngSubmit)="onSaveProject()">
+        <h4> --- Zadatak ------</h4>
+        <div class="form-group">
+                <label for="name">Project name</label>
+                <input
+                type="text"
+                id="name"
+                formControlName="projectName"
+                class="form-control">
+        </div>
+        <div class="form-group">
+                <label for="emailMoj">Email</label>
+                <input
+                type="email"
+                id="emailMoj"
+                formControlName="emailMoj"
+                class="form-control">
+        </div>
 
-<form [formGroup]="zadatakForma" (ngSubmit)="onSaveProject()">
-  <h4> --- Zadatak ------</h4>
-  <div class="form-group">
-          <label for="name">Project name</label>
-          <input
-          type="text"
-          id="name"
-          formControlName="projectName"
-          class="form-control">
+        <div class="form-group">
+          <label for="status">Project status</label>
+          <select
+          name="status"
+          formControlName="projectStatus"
+          class="form-control"
+          >
+            <option value="stable">Stable</option>
+            <option value="critical">Critical</option>
+            <option value="finished">Finished</option>
+          </select>
+          <button class="btn btn-primary" type="submit"> Create Project </button>
+        </div>
+      </form>
+    </div>
   </div>
-  <div class="form-group">
-          <label for="emailMoj">Email</label>
-          <input
-          type="email"
-          id="emailMoj"
-          formControlName="emailMoj"
-          class="form-control">
-  </div>
-
-  <div class="form-group">
-    <label for="status">Project status</label>
-    <select
-    name="status"
-    formControlName="projectStatus"
-    class="form-control"
-    >
-      <option value="stable">Stable</option>
-      <option value="critical">Critical</option>
-      <option value="finished">Finished</option>
-    </select>
-    <button class="btn btn-primary" type="submit"> Create Project </button>
-  </div>
-</form>
+</div>
 
