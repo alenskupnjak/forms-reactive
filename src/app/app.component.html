@@ -57,3 +57,43 @@
     </div>
   </div>
 </div>
+
+<hr>
+
+<!-- Zadatak *****************------------ -->
+<!-- Zadatak --------------------- -->
+
+<form [formGroup]="zadatakForma" (ngSubmit)="onSaveProject()">
+  <h4> --- Zadatak ------</h4>
+  <div class="form-group">
+          <label for="name">Project name</label>
+          <input
+          type="text"
+          id="name"
+          formControlName="projectName"
+          class="form-control">
+  </div>
+  <div class="form-group">
+          <label for="emailMoj">Email</label>
+          <input
+          type="email"
+          id="emailMoj"
+          formControlName="emailMoj"
+          class="form-control">
+  </div>
+
+  <div class="form-group">
+    <label for="status">Project status</label>
+    <select
+    name="status"
+    formControlName="projectStatus"
+    class="form-control"
+    >
+      <option value="stable">Stable</option>
+      <option value="critical">Critical</option>
+      <option value="finished">Finished</option>
+    </select>
+    <button class="btn btn-primary" type="submit"> Create Project </button>
+  </div>
+</form>
+
