@@ -1,0 +1,55 @@
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2">
+      <form [formGroup]="zadatakForma" (ngSubmit)="onSaveProject()">
+        <div class="form-group">
+                <label for="name">Project name</label>
+                <input
+                type="text"
+                id="name"
+                formControlName="projectName"
+                class="form-control">
+        </div>
+        <span
+        *ngIf="!zadatakForma.get('projectName').valid && zadatakForma.get('projectName').touched"
+        class="help-block" style="color: red;"> Molim unesite neki text</span>
+        <div class="form-group">
+                <label for="emailMoj">Email</label>
+                <input
+                type="email"
+                id="emailMoj"
+                formControlName="emailMoj"
+                class="form-control">
+        </div>
+        <span
+        *ngIf="!zadatakForma.get('emailMoj').valid && zadatakForma.get('emailMoj').touched"
+        class="help-block" style="color: red;"> Molim unesite ispravni e-mail</span>
+
+        <div class="form-group">
+          <label for="status">Project status</label>
+          <select
+          name="status"
+          formControlName="projectStatus"
+          class="form-control"
+          >
+            <option value="stable">Stable</option>
+            <option value="critical">Critical</option>
+            <option value="finished">Finished</option>
+          </select>
+          <button 
+          class="btn btn-primary" 
+          type="submit"
+          [disabled]="!zadatakForma.valid">Kreiraj Project</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <p>{{name}}</p>
+  <p>{{email}}</p>
+  <p>{{projekt}}</p>
+
+</div>
+
