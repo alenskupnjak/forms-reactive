@@ -11,6 +11,13 @@ import { CustomValidators } from './custom-validators';
 export class AppComponent implements OnInit {
   signupForm: FormGroup;
   zadatakForma: FormGroup;
+  name = 'kreni';
+  spol = 'neki spol';
+  userdataemail = 'start useddata email';
+  userdata: {};
+  userdataname = 'Ajmoo';
+  email: string;
+  projekt: string;
   genders = ['male', 'female', 'nesto'];
   forbiddenUsernames = ['Crish', 'Anna'];
 
@@ -71,11 +78,17 @@ export class AppComponent implements OnInit {
 
 
   mojaFunkcija() {
+    this.spol = this.signupForm.get('gender').value;
+    this.userdataname = this.signupForm.get('userData.username').value;
+    this.userdataemail = this.signupForm.get('userData.email').value;
     console.log(this.signupForm);
   }
 
 
   onSaveProject() {
+    this.email = this.zadatakForma.get('emailMoj').value;
+    this.name = this.zadatakForma.get('projectName').value;
+    this.projekt = this.zadatakForma.get('projectStatus').value;
     console.log(this.zadatakForma.value);
   }
 }

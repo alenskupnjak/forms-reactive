@@ -52,12 +52,18 @@
         *ngIf="!signupForm.valid && signupForm.touched"
         class="help-block">Forma nije ispravno popunjena</span>
 
-        <button class="btn btn-primary" type="submit">Potvrdi</button>
+        <button class="btn btn-primary" 
+              type="submit"
+              [disabled]="!signupForm.valid"
+              >Potvrdi</button>
       </form>
     </div>
   </div>
 </div>
 
+<p>{{spol}}</p>
+<p>{{userdataemail}}</p>
+<p>{{userdataname}}</p>
 <hr>
 
 <!-- Zadatak *****************------------ -->
@@ -95,10 +101,19 @@
             <option value="critical">Critical</option>
             <option value="finished">Finished</option>
           </select>
-          <button class="btn btn-primary" type="submit"> Kreiraj Project </button>
+          <button 
+          class="btn btn-primary" 
+          type="submit"
+          [disabled]="!zadatakForma.valid">Kreiraj Project</button>
         </div>
       </form>
     </div>
   </div>
 </div>
 
+<div class="container">
+  <p>{{name}}</p>
+  <p>{{email}}</p>
+  <p>{{projekt}}</p>
+
+</div>
